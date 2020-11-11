@@ -19,7 +19,7 @@ const TodoApp = () => {
 
   const onInsert = useCallback(
     (text) => {
-      setTodos(
+      setTodos((todos) =>
         todos.concat({
           id: nextId.current,
           text,
@@ -34,7 +34,7 @@ const TodoApp = () => {
 
   const onToggle = useCallback(
     (id) => {
-      setTodos(
+      setTodos((todos) =>
         todos.map((todo) =>
           todo.id === id ? { ...todo, done: !todo.done } : todo,
         ),
